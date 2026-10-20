@@ -1,13 +1,14 @@
 package main;
+import calificaciones.SistemaCalificaciones; // Importacion de la clase y paquete calificaciones
 
 public class Main {
 
     public static void main(String[] args) {
-        
-        System.out.println("-------------------------");
-        System.out.println("SISTEMA DE CALIFICACIONES");
-        System.out.println("-------------------------");
-        System.out.println("Bienvenido al sistema");
+
+        //Llamar Metodos
+        SistemaCalificaciones sistema = new SistemaCalificaciones();
+        sistema.bienvenida();
+        sistema.capturarDatos();
     }
 
 }
