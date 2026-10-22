@@ -5,10 +5,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //Llamar Metodos
+        //Llamar Metodos objeto llamado sistema
         SistemaCalificaciones sistema = new SistemaCalificaciones();
         sistema.bienvenida();
         sistema.capturarDatos();
+        sistema.mostrarDatos();
     }
 
 }
+ 
