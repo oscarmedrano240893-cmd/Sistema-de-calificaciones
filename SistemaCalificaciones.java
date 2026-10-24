@@ -8,6 +8,7 @@ public class SistemaCalificaciones {
     double PrimeraCalificacion;
     double SegundaCalificacion;
     double TerceraCalificacion;
+    double Promedio;
     Scanner entrada = new Scanner(System.in);
 
     //Metodo Bienvenida
@@ -43,22 +44,30 @@ public class SistemaCalificaciones {
         System.out.println("Segunda calificacion: " + SegundaCalificacion);
         System.out.println("Tercera calificacion: " + TerceraCalificacion);
         System.out.println("*******************************");
+        System.out.println("");
     }
+
+    /* //Metodo modificar datos
+    public void modificarPrimeraCalificacion(){
+        System.out.print("Dame el nuevo valor de la primera calificacion: ");
+        PrimeraCalificacion = entrada.nextDouble();
+        System.out.println("");
+    }*/
+    //Metodo calcular promedio
+    public void calcularPromedio() {
+        Promedio = (PrimeraCalificacion + SegundaCalificacion + TerceraCalificacion) / 3.0;
+        System.out.print("Promedio final: " + Promedio);
+        System.out.println("");
+    }
+
+    //Metodo para indicar si aprobo o reprobo el alumno
+    public void verificarAprobacion() {
+        if (Promedio >= 7.0) {
+            System.out.print("El alumno: " + Nombre + " aprobo con: " + Promedio);
+        } else {
+            System.out.println("El alumno: " + Nombre + " ha reprobado con: " + Promedio);
+
+        }
+    }
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
