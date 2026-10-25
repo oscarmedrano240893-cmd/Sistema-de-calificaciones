@@ -20,22 +20,45 @@ public class SistemaCalificaciones {
         System.out.println("");
     }
 
-    //Metodo capturar datos
+    //Metodo capturar datos y validar que esten dentro del rango de 0 - 10
     public void capturarDatos() {
         System.out.println("¿Cual es tu nombre? ");
         Nombre = entrada.nextLine();
 
-        System.out.print("Dame tu primer calificacion: ");
-        PrimeraCalificacion = entrada.nextDouble();
+        //Primer calificacion, repetir ciclo con do while
+        do {
+            System.out.print("Dame tu primer calificacion: ");
+            PrimeraCalificacion = entrada.nextDouble();
+            if (PrimeraCalificacion >= 0 && PrimeraCalificacion <= 10) {
+                System.out.println("Calificacion valida");
+            } else {
+                System.out.println("Calificacion invalida, favor de introducir una calificacion valida.");
+            }
+        } while (PrimeraCalificacion < 0 || PrimeraCalificacion > 10);
 
-        System.out.print("Dame tu segunda calificacion: ");
-        SegundaCalificacion = entrada.nextDouble();
+        //Segunda calificacion, repetir ciclo con do while
+        do {
+            System.out.print("Dame tu segunda calificacion: ");
+            SegundaCalificacion = entrada.nextDouble();
+            if (SegundaCalificacion >= 0 && SegundaCalificacion <= 10) {
+                System.out.println("Calificacion valida");
+            } else {
+                System.out.println("Calificacion invalida, favor de introducir una calificacion valida.");
+            }
+        } while (SegundaCalificacion < 0 || SegundaCalificacion > 10);
 
-        System.out.print("Dame tu tercera calificacion: ");
-        TerceraCalificacion = entrada.nextDouble();
+        //Tercera Calificacion, repetir ciclo con do while
+        do {
+            System.out.print("Dame tu tercera calificacion: ");
+            TerceraCalificacion = entrada.nextDouble();
+            if (TerceraCalificacion >= 0 && TerceraCalificacion <= 10) {
+                System.out.println("Calificacion valida");
+            } else {
+                System.out.println("Calificacion invalida, favor de introducir una calificacion valida");
+            }
+        } while (TerceraCalificacion < 0 || TerceraCalificacion > 10);
     }
-
-    //Metodo mostrar datos
+        //Metodo mostrar datos
     public void mostrarDatos() {
         System.out.println("");
         System.out.println("*******************************");
@@ -63,9 +86,9 @@ public class SistemaCalificaciones {
     //Metodo para indicar si aprobo o reprobo el alumno
     public void verificarAprobacion() {
         if (Promedio >= 7.0) {
-            System.out.print("El alumno: " + Nombre + " aprobo con: " + Promedio);
+            System.out.print("El alumno: " + Nombre + " aprobo con: " + Promedio + " Eres INTELIGENTE!!!");
         } else {
-            System.out.println("El alumno: " + Nombre + " ha reprobado con: " + Promedio);
+            System.out.println("El alumno: " + Nombre + " ha reprobado con: " + Promedio + "Eres BURRO!!!!!");
 
         }
     }
