@@ -9,6 +9,9 @@ public class SistemaCalificaciones {
     double SegundaCalificacion;
     double TerceraCalificacion;
     double Promedio;
+    int Aprobados = 0;
+    int Reprobados = 0;
+    
     Scanner entrada = new Scanner(System.in);
 
     //Metodo Bienvenida
@@ -58,7 +61,8 @@ public class SistemaCalificaciones {
             }
         } while (TerceraCalificacion < 0 || TerceraCalificacion > 10);
     }
-        //Metodo mostrar datos
+    //Metodo mostrar datos
+
     public void mostrarDatos() {
         System.out.println("");
         System.out.println("*******************************");
@@ -86,11 +90,44 @@ public class SistemaCalificaciones {
     //Metodo para indicar si aprobo o reprobo el alumno
     public void verificarAprobacion() {
         if (Promedio >= 7.0) {
-            System.out.print("El alumno: " + Nombre + " aprobo con: " + Promedio + " Eres INTELIGENTE!!!");
+            System.out.println("El alumno: " + Nombre + " aprobo con: " + Promedio);
+            Aprobados++;
         } else {
-            System.out.println("El alumno: " + Nombre + " ha reprobado con: " + Promedio + "Eres BURRO!!!!!");
-
+            System.out.println("El alumno: " + Nombre + " ha reprobado con: " + Promedio);
+            Reprobados++;
         }
+    }
+    
+    //Metodo para mostrar total de alumnos aprobados y reprobados
+    public void mostrarTotales(){
+        System.out.println("");
+        System.out.println("**********************************");
+        System.out.println("Alumnos Aprobados: " + Aprobados);
+        System.out.println("Alumnos Reprobados: " + Reprobados);
+        System.out.println("**********************************");
+    }
+    
+    //Metodo registrar mas alumnos que devuelva texto
+    public String preguntarOtroAlumno(){
+        entrada.nextLine(); // Consumir salto de linea pendiente
+        System.out.println("¿Desea registrar otro alumo? (si/no): ");
+        String respuesta = entrada.nextLine(); //Permite guardar un string
+        return(respuesta);   //Retorna la variable 
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
