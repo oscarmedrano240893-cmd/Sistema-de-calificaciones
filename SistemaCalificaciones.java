@@ -11,7 +11,9 @@ public class SistemaCalificaciones {
     double Promedio;
     int Aprobados = 0;
     int Reprobados = 0;
-    
+    double SumaPromedios;
+    double PromedioGeneral;
+
     Scanner entrada = new Scanner(System.in);
 
     //Metodo Bienvenida
@@ -84,6 +86,7 @@ public class SistemaCalificaciones {
     public void calcularPromedio() {
         Promedio = (PrimeraCalificacion + SegundaCalificacion + TerceraCalificacion) / 3.0;
         System.out.print("Promedio final: " + Promedio);
+        SumaPromedios += Promedio;  //Acumular el promedio de cada alumno en la variablr SumaPtomedios
         System.out.println("");
     }
 
@@ -97,37 +100,37 @@ public class SistemaCalificaciones {
             Reprobados++;
         }
     }
-    
+
     //Metodo para mostrar total de alumnos aprobados y reprobados
-    public void mostrarTotales(){
+    public void mostrarTotales() {
         System.out.println("");
         System.out.println("**********************************");
         System.out.println("Alumnos Aprobados: " + Aprobados);
         System.out.println("Alumnos Reprobados: " + Reprobados);
         System.out.println("**********************************");
     }
-    
+
     //Metodo registrar mas alumnos que devuelva texto
-    public String preguntarOtroAlumno(){
+    public String preguntarOtroAlumno() {
         entrada.nextLine(); // Consumir salto de linea pendiente
         System.out.println("¿Desea registrar otro alumo? (si/no): ");
         String respuesta = entrada.nextLine(); //Permite guardar un string
-        return(respuesta);   //Retorna la variable 
+        return (respuesta);   //Retorna la variable 
+    }
+
+    //Metodo calcularPromedioGeneral
+    public void calcularPromedioGeneral() {
+        System.out.println("");
+        if (Aprobados + Reprobados > 0) {
+            PromedioGeneral = SumaPromedios / (Aprobados + Reprobados);
+            System.out.println("-----------------------------------");
+            System.out.println("El promedio general de los alumnos es: " + PromedioGeneral);
+            System.out.println("-----------------------------------");
+        } else {
+            System.out.println("-----------------------------------");
+            System.out.println(" Error, no hay alumnos registrados.");
+            System.out.println("-----------------------------------");
+        }
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
