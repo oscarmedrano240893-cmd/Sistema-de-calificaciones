@@ -13,6 +13,10 @@ public class SistemaCalificaciones {
     int Reprobados = 0;
     double SumaPromedios;
     double PromedioGeneral;
+    int contadorAlumnos = 0;
+
+    //Arreglo para guardar varios nombres
+    String[] nombreAlumnos = new String[10];
 
     Scanner entrada = new Scanner(System.in);
 
@@ -25,11 +29,40 @@ public class SistemaCalificaciones {
         System.out.println("");
     }
 
+ /*   //METODO PROBAR ARREGLO
+    public void probarArreglo() {
+
+        //Guardar nombres de alumos en distintas posiciones
+        nombreAlumnos[0] = "Ana";
+        nombreAlumnos[1] = "Luis";
+        nombreAlumnos[2] = "Pedro";
+        String nombreBuscado = "Luis";  //variable con el ombre a buscar
+        boolean encontrado = false;   //variable  que si se encuentra al alumno debe de ser false antes de buscar
+
+        //for rrecore posiciones e if compara las posiciones y el nombre buscado
+        for (int i = 0; i < 3; i++) {
+
+            if (nombreAlumnos[i].equals(nombreBuscado)) {
+                System.out.println("Alumno encontrado " + nombreBuscado);
+                encontrado = true; // se cambia a true si el alumno existe
+
+            }
+            
+        }
+        //Condicion si no se encuentra al alumno
+        if (encontrado == false) {
+            System.out.println("Alumno no encontrado");
+        }
+
+    }
+*/
     //Metodo capturar datos y validar que esten dentro del rango de 0 - 10
     public void capturarDatos() {
         System.out.println("¿Cual es tu nombre? ");
         Nombre = entrada.nextLine();
-
+        nombreAlumnos[contadorAlumnos] = Nombre; //utilizar contador para guaradr nombre en el arreglo
+        contadorAlumnos++; //Aumentar contador 
+        
         //Primer calificacion, repetir ciclo con do while
         do {
             System.out.print("Dame tu primer calificacion: ");
