@@ -96,6 +96,31 @@ public class SistemaCalificaciones {
             }
         } while (TerceraCalificacion < 0 || TerceraCalificacion > 10);
     }
+    
+    //METODO BUSCAR ALUMNO
+    public void buscarAlumno(){
+        String nombreBuscado;
+        boolean alumnoBuscado = false; //variable  que si se encuentra al alumno debe de ser false antes de buscar
+        
+        System.out.println("Nombre del alumno que desea buscar: ");
+        nombreBuscado = entrada.nextLine();
+        //CICLO FOR recorre solo los alumnos registrados
+        for(int i = 0; i < contadorAlumnos; i++){ 
+            
+            if(nombreBuscado.equals(nombreAlumnos[i])){ //comparar y utilizar el arreglo para la psosicion i
+                System.out.println("El alumno: " + nombreAlumnos[i]); //Imprimir en pantalla
+                alumnoBuscado = true; // se cambia a true si el alumno existe
+                
+            }
+            
+        }
+        //CONDICION SI NO SE ENCUENTRA ALUMNO
+        if (alumnoBuscado == false){
+            System.out.println("Alumno no esta registrado");
+            
+        }
+        
+    }
     //Metodo mostrar datos
 
     public void mostrarDatos() {

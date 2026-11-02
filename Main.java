@@ -25,6 +25,7 @@ public class Main {
         while (respuesta.equalsIgnoreCase("si"));
         sistema.calcularPromedioGeneral(); //Calcular promedipo general
         sistema.mostrarTotales();  //Metodo que muestra aprobados y reprobados
+        sistema.buscarAlumno(); //Metodo buscar alumo
         
     }
 
