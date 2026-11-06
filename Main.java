@@ -6,7 +6,7 @@ public class Main {
    
 
     public static void main(String[] args) {
-        
+  
         String respuesta;
         //Objeto para comunicar las clases
         SistemaCalificaciones sistema = new SistemaCalificaciones();
@@ -15,6 +15,7 @@ public class Main {
         do{
         sistema.bienvenida();
         sistema.capturarDatos();
+                
         //sistema.modificarPrimeraCalificacion();
         sistema.mostrarDatos();
         sistema.calcularPromedio();
@@ -25,7 +26,8 @@ public class Main {
         while (respuesta.equalsIgnoreCase("si"));
         sistema.calcularPromedioGeneral(); //Calcular promedipo general
         sistema.mostrarTotales();  //Metodo que muestra aprobados y reprobados
-        sistema.buscarAlumno(); //Metodo buscar alumo
+        sistema.buscarAlumno(); //Metodo buscar alumno
+        sistema.mostrarAlumnos(); //Metodo mostrar alumnos
         
     }
 

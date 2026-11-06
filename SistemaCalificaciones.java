@@ -99,6 +99,12 @@ public class SistemaCalificaciones {
     
     //METODO BUSCAR ALUMNO
     public void buscarAlumno(){
+        System.out.println("Desea consultar algun alumno? (si/no)");
+        String buscar = entrada.nextLine();
+     
+       
+      
+        
         String nombreBuscado;
         boolean alumnoBuscado = false; //variable  que si se encuentra al alumno debe de ser false antes de buscar
         
@@ -120,6 +126,14 @@ public class SistemaCalificaciones {
             
         }
         
+    }
+    // METODO mostrarAlumnos
+    public void mostrarAlumnos(){
+        
+        for (int i = 0; i < contadorAlumnos; i++) {
+            System.out.println((i + 1) + ". " + nombreAlumnos[i]);
+            
+        }
     }
     //Metodo mostrar datos
 
