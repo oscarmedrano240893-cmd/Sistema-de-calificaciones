@@ -17,7 +17,9 @@ public class SistemaCalificaciones {
 
     //Arreglo para guardar varios nombres
     String[] nombreAlumnos = new String[10];
-
+    double[] primeraCalificacion = new double[10];
+    double[] segundaCalificacion = new double[10];
+    double[] terceraCalificacion = new double[10];
     Scanner entrada = new Scanner(System.in);
 
     //Metodo Bienvenida
@@ -29,7 +31,7 @@ public class SistemaCalificaciones {
         System.out.println("");
     }
 
- /*   //METODO PROBAR ARREGLO
+    /*   //METODO PROBAR ARREGLO
     public void probarArreglo() {
 
         //Guardar nombres de alumos en distintas posiciones
@@ -55,18 +57,20 @@ public class SistemaCalificaciones {
         }
 
     }
-*/
+     */
     //Metodo capturar datos y validar que esten dentro del rango de 0 - 10
     public void capturarDatos() {
         System.out.println("¿Cual es tu nombre? ");
         Nombre = entrada.nextLine();
         nombreAlumnos[contadorAlumnos] = Nombre; //utilizar contador para guaradr nombre en el arreglo
-        contadorAlumnos++; //Aumentar contador 
-        
+
         //Primer calificacion, repetir ciclo con do while
         do {
             System.out.print("Dame tu primer calificacion: ");
             PrimeraCalificacion = entrada.nextDouble();
+
+            //utilizar contador para guaradr calificacion en el arreglo
+            primeraCalificacion[contadorAlumnos] = PrimeraCalificacion;
             if (PrimeraCalificacion >= 0 && PrimeraCalificacion <= 10) {
                 System.out.println("Calificacion valida");
             } else {
@@ -78,6 +82,9 @@ public class SistemaCalificaciones {
         do {
             System.out.print("Dame tu segunda calificacion: ");
             SegundaCalificacion = entrada.nextDouble();
+
+            //utilizar contador para guaradr calificacion en el arreglo
+            segundaCalificacion[contadorAlumnos] = SegundaCalificacion;
             if (SegundaCalificacion >= 0 && SegundaCalificacion <= 10) {
                 System.out.println("Calificacion valida");
             } else {
@@ -89,50 +96,70 @@ public class SistemaCalificaciones {
         do {
             System.out.print("Dame tu tercera calificacion: ");
             TerceraCalificacion = entrada.nextDouble();
+
+            //utilizar contador para guaradr calificacion en el arreglo
+            terceraCalificacion[contadorAlumnos] = TerceraCalificacion;
             if (TerceraCalificacion >= 0 && TerceraCalificacion <= 10) {
                 System.out.println("Calificacion valida");
             } else {
                 System.out.println("Calificacion invalida, favor de introducir una calificacion valida");
             }
         } while (TerceraCalificacion < 0 || TerceraCalificacion > 10);
+        contadorAlumnos++; //Aumentar contador 
+
     }
-    
+
     //METODO BUSCAR ALUMNO
-    public void buscarAlumno(){
+    public void buscarAlumno() {
+        //Para guardar promedio individual
+        double promedioAlumno;
+
+        //preguntar si se desea consultar algun alumno        
         System.out.println("Desea consultar algun alumno? (si/no)");
         String buscar = entrada.nextLine();
-     
-       
-      
-        
-        String nombreBuscado;
-        boolean alumnoBuscado = false; //variable  que si se encuentra al alumno debe de ser false antes de buscar
-        
-        System.out.println("Nombre del alumno que desea buscar: ");
-        nombreBuscado = entrada.nextLine();
-        //CICLO FOR recorre solo los alumnos registrados
-        for(int i = 0; i < contadorAlumnos; i++){ 
-            
-            if(nombreBuscado.equals(nombreAlumnos[i])){ //comparar y utilizar el arreglo para la psosicion i
-                System.out.println("El alumno: " + nombreAlumnos[i]); //Imprimir en pantalla
-                alumnoBuscado = true; // se cambia a true si el alumno existe
-                
+
+        if (buscar.equalsIgnoreCase("si")) {
+
+            System.out.print("Nombre del alumno que desea buscar: ");
+            String nombreBuscado = entrada.nextLine();
+            boolean alumnoBuscado = false; //variable  que si se encuentra al alumno debe de ser false antes de buscar
+
+            //CICLO FOR recorre solo los alumnos registrados
+            for (int i = 0; i < contadorAlumnos; i++) {
+
+                if (nombreBuscado.equals(nombreAlumnos[i])) { //comparar y utilizar el arreglo para la psosicion i
+                    System.out.println("**************************************************");
+                    System.out.print("El alumno: " + nombreAlumnos[i]
+                            + "\nPrimera calificacion: " + primeraCalificacion[i]
+                            + "\nSegunda calificacion: " + segundaCalificacion[i]
+                            + "\nTercera calificacion: " + terceraCalificacion[i]); //Imprimir en pantalla
+                    alumnoBuscado = true; // se cambia a true si el alumno existe
+                    promedioAlumno = (primeraCalificacion[i] + segundaCalificacion[i] + terceraCalificacion[i]) / 3.0;
+                    System.out.println("\nPromedio del alumno: " + nombreAlumnos[i] + ": " + promedioAlumno);
+                    System.out.println("**************************************************");
+
+                }
+
             }
-            
+            //CONDICION SI NO SE ENCUENTRA ALUMNO
+            if (alumnoBuscado == false) {
+                System.out.println("Alumno no esta registrado");
+
+            }
+        } else {
+            System.out.println("No se desea hacer busqueda");
         }
-        //CONDICION SI NO SE ENCUENTRA ALUMNO
-        if (alumnoBuscado == false){
-            System.out.println("Alumno no esta registrado");
-            
-        }
-        
+
     }
+
     // METODO mostrarAlumnos
-    public void mostrarAlumnos(){
-        
+    public void mostrarAlumnos() {
+
         for (int i = 0; i < contadorAlumnos; i++) {
+            System.out.println("");
+            System.out.println("Listado alumnos");
             System.out.println((i + 1) + ". " + nombreAlumnos[i]);
-            
+
         }
     }
     //Metodo mostrar datos
