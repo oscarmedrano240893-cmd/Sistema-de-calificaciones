@@ -113,46 +113,50 @@ public class SistemaCalificaciones {
     public void buscarAlumno() {
         //Para guardar promedio individual
         double promedioAlumno;
+        String buscar;
+        
+        //Repetir ciclo de busqueda de alumnos
+        do {
 
-        //preguntar si se desea consultar algun alumno        
-        System.out.println("Desea consultar algun alumno? (si/no)");
-        String buscar = entrada.nextLine();
+            System.out.print("Desea consultar algun alumno? (si/no)");
+            buscar = entrada.nextLine();
 
-        if (buscar.equalsIgnoreCase("si")) {
+            if (buscar.equalsIgnoreCase("si")) {
+                //preguntar si se desea consultar algun alumno        
 
-            System.out.print("Nombre del alumno que desea buscar: ");
-            String nombreBuscado = entrada.nextLine();
-            boolean alumnoBuscado = false; //variable  que si se encuentra al alumno debe de ser false antes de buscar
+                System.out.print("Nombre del alumno que desea buscar: ");
+                String nombreBuscado = entrada.nextLine();
+                boolean alumnoBuscado = false; //variable  que si se encuentra al alumno debe de ser false antes de buscar
 
-            //CICLO FOR recorre solo los alumnos registrados
-            for (int i = 0; i < contadorAlumnos; i++) {
+                //CICLO FOR recorre solo los alumnos registrados
+                for (int i = 0; i < contadorAlumnos; i++) {
 
-                if (nombreBuscado.equals(nombreAlumnos[i])) { //comparar y utilizar el arreglo para la psosicion i
-                    System.out.println("**************************************************");
-                    System.out.print("El alumno: " + nombreAlumnos[i]
-                            + "\nPrimera calificacion: " + primeraCalificacion[i]
-                            + "\nSegunda calificacion: " + segundaCalificacion[i]
-                            + "\nTercera calificacion: " + terceraCalificacion[i]); //Imprimir en pantalla
-                    alumnoBuscado = true; // se cambia a true si el alumno existe
-                    promedioAlumno = (primeraCalificacion[i] + segundaCalificacion[i] + terceraCalificacion[i]) / 3.0;
-                    System.out.println("\nPromedio del alumno: " + nombreAlumnos[i] + ": " + promedioAlumno);
-                    System.out.println("**************************************************");
+                    if (nombreBuscado.equals(nombreAlumnos[i])) { //comparar y utilizar el arreglo para la psosicion i
+                        System.out.println("**************************************************");
+                        System.out.print("El alumno: " + nombreAlumnos[i]
+                                + "\nPrimera calificacion: " + primeraCalificacion[i]
+                                + "\nSegunda calificacion: " + segundaCalificacion[i]
+                                + "\nTercera calificacion: " + terceraCalificacion[i]); //Imprimir en pantalla
+                        alumnoBuscado = true; // se cambia a true si el alumno existe
+                        promedioAlumno = (primeraCalificacion[i] + segundaCalificacion[i] + terceraCalificacion[i]) / 3.0;
+                        System.out.println("\nPromedio del alumno: " + nombreAlumnos[i] + ": " + promedioAlumno);
+                        System.out.println("**************************************************");
+
+                    }
 
                 }
+                //CONDICION SI NO SE ENCUENTRA ALUMNO
+                if (alumnoBuscado == false) {
+                    System.out.println("Alumno no esta registrado");
+
+                }
+            } else {
+                System.out.println("No se desea hacer busqueda");
 
             }
-            //CONDICION SI NO SE ENCUENTRA ALUMNO
-            if (alumnoBuscado == false) {
-                System.out.println("Alumno no esta registrado");
 
-            }
-        } else {
-            System.out.println("No se desea hacer busqueda");
-        }
-
-    }
-
-    // METODO mostrarAlumnos
+        } while (buscar.equalsIgnoreCase("si"));
+    }  // METODO mostrarAlumnos
     public void mostrarAlumnos() {
 
         for (int i = 0; i < contadorAlumnos; i++) {
