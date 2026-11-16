@@ -114,11 +114,10 @@ public class SistemaCalificaciones {
         //Para guardar promedio individual
         double promedioAlumno;
         String buscar;
-        
-        //Repetir ciclo de busqueda de alumnos
+
         do {
 
-            System.out.print("Desea consultar algun alumno? (si/no)");
+            System.out.println("Desea consultar algun alumno? (si/no)");
             buscar = entrada.nextLine();
 
             if (buscar.equalsIgnoreCase("si")) {
@@ -157,6 +156,7 @@ public class SistemaCalificaciones {
 
         } while (buscar.equalsIgnoreCase("si"));
     }  // METODO mostrarAlumnos
+
     public void mostrarAlumnos() {
 
         for (int i = 0; i < contadorAlumnos; i++) {
@@ -179,12 +179,6 @@ public class SistemaCalificaciones {
         System.out.println("");
     }
 
-    /* //Metodo modificar datos
-    public void modificarPrimeraCalificacion(){
-        System.out.print("Dame el nuevo valor de la primera calificacion: ");
-        PrimeraCalificacion = entrada.nextDouble();
-        System.out.println("");
-    }*/
     //Metodo calcular promedio
     public void calcularPromedio() {
         Promedio = (PrimeraCalificacion + SegundaCalificacion + TerceraCalificacion) / 3.0;
@@ -234,6 +228,61 @@ public class SistemaCalificaciones {
             System.out.println(" Error, no hay alumnos registrados.");
             System.out.println("-----------------------------------");
         }
+    }
+
+    //Metodo contador de alumnos
+    public int getContadorAlumnos() {
+        return contadorAlumnos;
+    }
+
+    //Metodo devolver nombre y podicion
+    public String getNombreAlumno(int posicion) {
+        return nombreAlumnos[posicion];
+    }
+
+    //Metodo obtener primera calificacion
+    public double getPrimeraCalificacion(int posicion) {
+        return primeraCalificacion[posicion];
+    }
+
+    //Metodo obtener segunda calificacion
+    public double getSegundaCalificacion(int posicion) {
+        return segundaCalificacion[posicion];
+    }
+
+    //Metodo obtener tercera calificacion
+    public double getTerceraCalificacion(int posicion) {
+        return terceraCalificacion[posicion];
+    }
+
+    //Metodo modificar datos
+    public void setPrimeraCalificacion(int posicion) {
+        System.out.print("Dame el nuevo valor de la primera calificacion: ");
+        double nuevaCalificacion = entrada.nextDouble();
+        primeraCalificacion[posicion] = nuevaCalificacion;
+    }
+
+    //Metodo modificar segunda calificacion
+    public void setSegundaCalificacion(int posicion) {
+        System.out.print("Dame el nuevo valor de la segunda calificacion: ");
+        double nuevaCalificacion = entrada.nextDouble();
+        segundaCalificacion[posicion] = nuevaCalificacion;
+    }
+    //Metodo modificar terecera calificacion
+
+    public void setTerceraCalificacion(int posicion) {
+        System.out.println("Dame el nuevo valor para la tercera calificacion: ");
+        double nuevaCalificacion = entrada.nextDouble();
+        terceraCalificacion[posicion] = nuevaCalificacion;
+    }
+
+    //Metodo calcular promedio del alumno seleccionado
+    public void calcularPromedioAlumnoSeleccionado(int posicion) {
+        double promedio = (primeraCalificacion[posicion] + segundaCalificacion[posicion]
+                + terceraCalificacion[posicion]) / 3.0;
+        System.out.println("Alumno: " + nombreAlumnos[posicion]
+                + "\nPromedio: " + promedio);
+
     }
 
 }
